@@ -8,7 +8,7 @@ Integração do sistema Rex com o Target Bank para geração do CIOT e Vale ped�
 #### Retorna todos os itens
 
 ```http
-  GET /api/items
+  GET /api/cadastro
 ```
 
 | Parâmetro   | Tipo       | Descrição                           |
@@ -18,15 +18,13 @@ Integração do sistema Rex com o Target Bank para geração do CIOT e Vale ped�
 #### Retorna um item
 
 ```http
-  GET /api/items/${id}
+  GET /api/cadastro/($id)
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
+| `id`      | `Integer` | **Obrigatório**. O ID do item que você quer |
 
-#### add(num1, num2)
 
-Recebe dois números e retorna a sua som
 
 
