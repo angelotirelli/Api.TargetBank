@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8750B2FC-F838-48D2-921E-76E202CB7B31}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Api.TargetBank.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\src.exemplo\Api.Exemplo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Api_TargetBank">
+        <MSBuild Projects="Api.TargetBank.dproj"/>
+    </Target>
+    <Target Name="Api_TargetBank:Clean">
+        <MSBuild Projects="Api.TargetBank.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Api_TargetBank:Make">
+        <MSBuild Projects="Api.TargetBank.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Api_Exemplo">
+        <MSBuild Projects="..\src.exemplo\Api.Exemplo.dproj"/>
+    </Target>
+    <Target Name="Api_Exemplo:Clean">
+        <MSBuild Projects="..\src.exemplo\Api.Exemplo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Api_Exemplo:Make">
+        <MSBuild Projects="..\src.exemplo\Api.Exemplo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Api_TargetBank;Api_Exemplo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Api_TargetBank:Clean;Api_Exemplo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Api_TargetBank:Make;Api_Exemplo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
