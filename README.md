@@ -25,6 +25,9 @@ Integração do sistema Rex com o Target Bank para geração do CIOT e Vale ped�
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Integer` | **Obrigatório**. O ID do cadastro que você quer |
 
+## Em desenvolvimento
+
+Conexão com WS da Target
 
 
 ## Métodos que serão implementados
