@@ -4,7 +4,7 @@
 Integração do sistema Rex com o Target Bank para geração do CIOT e Vale pedágio.
 
 Link da documentação da Tagert Bank:
-![](https://targetbank.atlassian.net/wiki/spaces/DOC/pages/402194481/1-+WS+2.0+Frete+Ambientes/)
+<https://targetbank.atlassian.net/wiki/spaces/DOC/pages/402194481/1-+WS+2.0+Frete+Ambientes/>
 
 ## Em desenvolvimento
 
@@ -13,46 +13,32 @@ Conexão com WS da Target
 
 ## Métodos que serão implementados
 Buscar Transportador
-
 CadastrarAtualizarTransportador
-
 Buscar Motorista
-
 CadastarAtualizarMotorista
-
 BuscarParticipante
-
 CadastrarAtualizarParticipante
-
 CadastrarRoteiro
-
 BuscarRoteiro
-
 ObterCustoRota
-
 CadastrarAtualizarOperacaoTransporte
-
 DeclararOperacaoTransporte
-
 EmitirDocumento
-
 RegistrarParcelaIndividual
-
 PagarParcelaIndividual
-
 ComprarPedagioAvulso
-
 ConfirmarPedagioTag
-
 EncerrarOperaçãoTransporte
-
 BuscaOperacaoTransporte
-
 BuscarCompraValePedagio
-
 CancelarOperacaoTransporte
-
 CancelarCompraValePedagio
+
+## Desenvolvimentos concluídos
+
+Conexão com o banco de dados
+CRUD
+Métodos GET, POST, PUT e DELETE 
 
 
 ## Documentação da API
@@ -63,9 +49,9 @@ CancelarCompraValePedagio
   GET /api/cadastro
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
+| Parâmetro   | Tipo       | Descrição                           | Obrigatório |
+| :---------- | :--------- | :---------------------------------- | :-----------|
+| `api_key` | `string` | A chave da sua API                  | Sim         |
 
 #### Retorna um item
 
@@ -73,6 +59,6 @@ CancelarCompraValePedagio
   GET /api/cadastro/($id)
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `Integer` | **Obrigatório**. O ID do cadastro que você quer |
+| Parâmetro   | Tipo       | Descrição                                   | Obrigatório |
+| :---------- | :--------- | :------------------------------------------ | :-----------|
+| `id`      | `Integer` |  O ID do cadastro que você quer                   | Sim         |
