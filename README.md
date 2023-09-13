@@ -3,6 +3,8 @@
 
 Integração do sistema Rex com o Target Bank para geração do CIOT e Vale pedágio.
 
+!(Segue link da nossa documentação para conhecimento:)[https://targetbank.atlassian.net/wiki/spaces/DOC/pages/402194481/1-+WS+2.0+Frete+Ambientes]
+
 ## Documentação da API
 
 #### Retorna todos os itens
