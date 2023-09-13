@@ -27,4 +27,45 @@ Integração do sistema Rex com o Target Bank para geração do CIOT e Vale ped�
 
 
 
+## Métodos que serão implementados
+Buscar Transportador
 
+CadastrarAtualizarTransportador
+
+Buscar Motorista
+
+CadastarAtualizarMotorista
+
+BuscarParticipante
+
+CadastrarAtualizarParticipante
+
+CadastrarRoteiro
+
+BuscarRoteiro
+
+ObterCustoRota
+
+CadastrarAtualizarOperacaoTransporte
+
+DeclararOperacaoTransporte
+
+EmitirDocumento
+
+RegistrarParcelaIndividual
+
+PagarParcelaIndividual
+
+ComprarPedagioAvulso
+
+ConfirmarPedagioTag
+
+EncerrarOperaçãoTransporte
+
+BuscaOperacaoTransporte
+
+BuscarCompraValePedagio
+
+CancelarOperacaoTransporte
+
+CancelarCompraValePedagio
