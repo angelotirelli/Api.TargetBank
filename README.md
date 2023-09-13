@@ -3,9 +3,6 @@
 
 Integração do sistema Rex com o Target Bank para geração do CIOT e Vale pedágio.
 
-Link da documentação da Tagert Bank:
-
-<https://targetbank.atlassian.net/wiki/spaces/DOC/pages/402194481/1-+WS+2.0+Frete+Ambientes/>
 
 ## Em desenvolvimento
 
@@ -84,3 +81,9 @@ Métodos GET, POST, PUT e DELETE
 | Parâmetro   | Tipo       | Descrição                                   | Obrigatório |
 | :---------- | :--------- | :------------------------------------------ | :-----------|
 | `id`      | `Integer` |  O ID do cadastro que você quer | Sim |
+
+
+# Target Bank
+Link da documentação da Tagert Bank:
+
+<https://targetbank.atlassian.net/wiki/spaces/DOC/pages/402194481/1-+WS+2.0+Frete+Ambientes/>
