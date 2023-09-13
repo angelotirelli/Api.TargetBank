@@ -51,7 +51,7 @@ Métodos GET, POST, PUT e DELETE
 
 | Parâmetro   | Tipo       | Descrição                           | Obrigatório |
 | :---------- | :--------- | :---------------------------------- | :-----------|
-| `api_key` | `string` | A chave da sua API                  | Sim         |
+| `api_key` | `string` | A chave da sua API | Sim |
 
 #### Retorna um item
 
@@ -61,4 +61,4 @@ Métodos GET, POST, PUT e DELETE
 
 | Parâmetro   | Tipo       | Descrição                                   | Obrigatório |
 | :---------- | :--------- | :------------------------------------------ | :-----------|
-| `id`      | `Integer` |  O ID do cadastro que você quer                   | Sim         |
+| `id`      | `Integer` |  O ID do cadastro que você quer | Sim |
