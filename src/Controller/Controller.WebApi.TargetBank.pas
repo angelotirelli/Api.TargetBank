@@ -54,20 +54,18 @@ implementation
 uses
   System.SysUtils,
   MVCFramework.Logger,
-  System.Generics.Collections;
-
+  System.Generics.Collections,
+  IniFiles;
 
 procedure TControllerApiTargetBank.OnAfterAction(Context: TWebContext; const AActionName: string);
 begin
-  { Executed after each action }
+
   inherited;
 end;
 
 procedure TControllerApiTargetBank.OnBeforeAction(Context: TWebContext; const AActionName: string; var Handled: Boolean);
 begin
-  { Executed before each action
-    if handled is true (or an exception is raised) the actual
-    action will not be called }
+
   inherited;
 end;
 
@@ -87,11 +85,13 @@ constructor TControllerApiTargetBank.Create;
 begin
   inherited;
 
-  FConnectionRex := TMySQLConnection.Create('177.70.18.178',
-                                            '3367',
-                                            'rex_cte',
-                                            '$rex_cte',
-                                            '#Rex_cte$22892');
+  var vIniFile := TIniFile.Create('C:\Git\Api.TargetBank\conexao.ini');
+
+  FConnectionRex := TMySQLConnection.Create(vIniFile.ReadString('Conexao', 'Servidor', ''),
+                                            vIniFile.ReadString('Conexao', 'Porta'   , ''),
+                                            vIniFile.ReadString('Conexao', 'Banco'   , ''),
+                                            vIniFile.ReadString('Conexao', 'Usuario' , ''),
+                                            vIniFile.ReadString('Conexao', 'Senha'   , ''));
 
   FConnectionRex.Connect;
 
