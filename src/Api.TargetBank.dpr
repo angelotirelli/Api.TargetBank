@@ -17,7 +17,8 @@ uses
   Main.WebApi.TargetBank in 'Services\Main.WebApi.TargetBank.pas' {WebApiMain: TWebModule},
   WebService.Client.TargetBank in 'Services\WebService.Client.TargetBank.pas',
   Model.Cadastro in 'Model\Model.Cadastro.pas',
-  uDataModuleRex in 'uDataModuleRex.pas';
+  uDataModuleRex in 'uDataModuleRex.pas',
+  FreteService in 'FreteService.pas';
 
 {$R *.res}
 

@@ -6,7 +6,7 @@
         <Projects Include="Api.TargetBank.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\src.exemplo\Api.Exemplo.dproj">
+        <Projects Include="TesteWS\ProjectTesteWS.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,23 +26,23 @@
     <Target Name="Api_TargetBank:Make">
         <MSBuild Projects="Api.TargetBank.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Api_Exemplo">
-        <MSBuild Projects="..\src.exemplo\Api.Exemplo.dproj"/>
+    <Target Name="ProjectTesteWS">
+        <MSBuild Projects="TesteWS\ProjectTesteWS.dproj"/>
     </Target>
-    <Target Name="Api_Exemplo:Clean">
-        <MSBuild Projects="..\src.exemplo\Api.Exemplo.dproj" Targets="Clean"/>
+    <Target Name="ProjectTesteWS:Clean">
+        <MSBuild Projects="TesteWS\ProjectTesteWS.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Api_Exemplo:Make">
-        <MSBuild Projects="..\src.exemplo\Api.Exemplo.dproj" Targets="Make"/>
+    <Target Name="ProjectTesteWS:Make">
+        <MSBuild Projects="TesteWS\ProjectTesteWS.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Api_TargetBank;Api_Exemplo"/>
+        <CallTarget Targets="Api_TargetBank;ProjectTesteWS"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Api_TargetBank:Clean;Api_Exemplo:Clean"/>
+        <CallTarget Targets="Api_TargetBank:Clean;ProjectTesteWS:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Api_TargetBank:Make;Api_Exemplo:Make"/>
+        <CallTarget Targets="Api_TargetBank:Make;ProjectTesteWS:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
