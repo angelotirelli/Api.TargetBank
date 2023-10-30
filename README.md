@@ -2,7 +2,7 @@
 # Projeto API TargetBank - Rex Mobile
 
 Integração do sistema Rex com o Target Bank para geração do CIOT e Vale pedágio.
-<img src="./projectBase.tldr" alt="Projeto API TargetBank" />
+<img src="./project.png" alt="Projeto API TargetBank" />
 
 ## Em desenvolvimento
 
