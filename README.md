@@ -6,7 +6,7 @@ Integração do sistema Rex com o Target Bank para geração do CIOT e Vale ped�
 
 ## Em desenvolvimento
 
-Conexão com WS da Target
+Implementação dos métodos
 
 ## Última alteração
 <https://github.com/angelotirelli/Api.TargetBank/commit/e18df2e170b800d38066e9ffbe8159a5e916ff23>
