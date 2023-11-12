@@ -8,15 +8,15 @@ Integração do sistema Rex com o Target Bank para geração do CIOT e Vale ped�
 
 CIOT Padrão - (Cartão Target Conta Digital ou Bradesco) && (Não contém Vale Pedágio)
  métodos:
-1- CadastrarAtualizarTransportador
-2- CadastrarAtualizarMotorista
-3- ObterInformacaoCartao (Cenário 20 ou 21)
-4- AssociarSubstituirCartao (Cenário 20 ou 21)
-5- CadastrarAtualizarParticipante
-6- CadastrarAtualizarOperacaoTransporte
-7- DeclararOperacaoTransporte
-8- EmitirDocumento (CIOT)
-9- EncerrarOperacaoTransporte
+<p>1- CadastrarAtualizarTransportador</p>
+<p>2- CadastrarAtualizarMotorista</p>
+<p>3- ObterInformacaoCartao (Cenário 20 ou 21)</p>
+<p>4- AssociarSubstituirCartao (Cenário 20 ou 21)</p>
+<p>5- CadastrarAtualizarParticipante</p>
+<p>6- CadastrarAtualizarOperacaoTransporte</p>
+<p>7- DeclararOperacaoTransporte</p>
+<p>8- EmitirDocumento (CIOT)</p>
+<p>9- EncerrarOperacaoTransporte</p>
 
 ## Última alteração
 <https://github.com/angelotirelli/Api.TargetBank/commit/2f2c6a2b73760e6e2757623d63e5e193d7a3a30e>
