@@ -13,12 +13,14 @@ uses
   Web.WebBroker,
   IdContext,
   IdHTTPWebBrokerBridge,
-  Controller.WebApi.TargetBank in 'Controller\Controller.WebApi.TargetBank.pas',
-  Main.WebApi.TargetBank in 'Services\Main.WebApi.TargetBank.pas' {WebApiMain: TWebModule},
-  WebService.Client.TargetBank in 'Services\WebService.Client.TargetBank.pas',
-  Model.Cadastro in 'Model\Model.Cadastro.pas',
   uDataModuleRex in 'uDataModuleRex.pas',
-  FreteService in 'FreteService.pas';
+  FreteService in 'FreteService.pas',
+  ErrorExceptions.WebApi.TargetBank.Interfaces in 'Interfaces\ErrorExceptions.WebApi.TargetBank.Interfaces.pas',
+  ErrorExceptions.WebApi.TargetBank.Model in 'Model\ErrorExceptions.WebApi.TargetBank.Model.pas',
+  Cadastro.Entidade.WebApi.TargetBank.Model in 'Model\Cadastro.Entidade.WebApi.TargetBank.Model.pas',
+  WebService.Client.TargetBank in 'Services\WebService.Client.TargetBank.pas',
+  Main.WebApi.TargetBank.Controller in 'Controller\Main.WebApi.TargetBank.Controller.pas',
+  Main.WebApi.TargetBank.Services in 'Services\Main.WebApi.TargetBank.Services.pas' {WebApiMain: TWebModule};
 
 {$R *.res}
 

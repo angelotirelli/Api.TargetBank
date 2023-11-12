@@ -138,16 +138,17 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Controller\Controller.WebApi.TargetBank.pas"/>
-        <DCCReference Include="Services\Main.WebApi.TargetBank.pas">
-            <Form>WebApiMain</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TWebModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Services\WebService.Client.TargetBank.pas"/>
-        <DCCReference Include="Model\Model.Cadastro.pas"/>
         <DCCReference Include="uDataModuleRex.pas"/>
         <DCCReference Include="FreteService.pas"/>
+        <DCCReference Include="Interfaces\ErrorExceptions.WebApi.TargetBank.Interfaces.pas"/>
+        <DCCReference Include="Model\ErrorExceptions.WebApi.TargetBank.Model.pas"/>
+        <DCCReference Include="Model\Cadastro.Entidade.WebApi.TargetBank.Model.pas"/>
+        <DCCReference Include="Services\WebService.Client.TargetBank.pas"/>
+        <DCCReference Include="Controller\Main.WebApi.TargetBank.Controller.pas"/>
+        <DCCReference Include="Services\Main.WebApi.TargetBank.Services.pas">
+            <Form>WebApiMain</Form>
+            <DesignClass>TWebModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -168,6 +169,10 @@
                 <Source>
                     <Source Name="MainSource">Api.TargetBank.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">

@@ -6,9 +6,6 @@
         <Projects Include="Api.TargetBank.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="TesteWS\ProjectTesteWS.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -26,23 +23,14 @@
     <Target Name="Api_TargetBank:Make">
         <MSBuild Projects="Api.TargetBank.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ProjectTesteWS">
-        <MSBuild Projects="TesteWS\ProjectTesteWS.dproj"/>
-    </Target>
-    <Target Name="ProjectTesteWS:Clean">
-        <MSBuild Projects="TesteWS\ProjectTesteWS.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="ProjectTesteWS:Make">
-        <MSBuild Projects="TesteWS\ProjectTesteWS.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Api_TargetBank;ProjectTesteWS"/>
+        <CallTarget Targets="Api_TargetBank"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Api_TargetBank:Clean;ProjectTesteWS:Clean"/>
+        <CallTarget Targets="Api_TargetBank:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Api_TargetBank:Make;ProjectTesteWS:Make"/>
+        <CallTarget Targets="Api_TargetBank:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

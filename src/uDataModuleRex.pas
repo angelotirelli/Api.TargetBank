@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils,
   FireDAC.Comp.Client,
-  FireDAC.Phys;
+  FireDAC.Phys,
+  FireDAC.Phys.MySQL;
 
 type
   TMySQLConnection = class

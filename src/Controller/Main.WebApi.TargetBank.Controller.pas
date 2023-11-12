@@ -1,16 +1,16 @@
-unit Controller.WebApi.TargetBank;
+unit Main.WebApi.TargetBank.Controller;
 
 interface
 
 uses
+  uDataModuleRex,
+  System.JSON,
   MVCFramework,
   MVCFramework.Commons,
   MVCFramework.Serializer.Commons,
-  uDataModuleRex,
-  MVCFramework.SQLGenerators.MySQL,
   MVCFramework.ActiveRecord,
-  Model.Cadastro,
-  System.JSON;
+  MVCFramework.SQLGenerators.MySQL,
+  System.Generics.Collections;
 
 type
   [MVCPath('/api')]
@@ -46,6 +46,10 @@ type
     [MVCHTTPMethod([httpDELETE])]
     procedure DeleteCadastro(id: Integer);
 
+    [MVCPath('/CIOT')]
+    [MVCHTTPMethod([httpPOST])]
+    procedure CreateCIOT;
+
     constructor Create; override;
   end;
 
@@ -53,9 +57,9 @@ implementation
 
 uses
   System.SysUtils,
-  MVCFramework.Logger,
-  System.Generics.Collections,
-  IniFiles;
+  IniFiles,
+  Cadastro.Entidade.WebApi.TargetBank.Model,
+  ErrorExceptions.WebApi.TargetBank.Interfaces;
 
 procedure TControllerApiTargetBank.OnAfterAction(Context: TWebContext; const AActionName: string);
 begin
@@ -71,45 +75,54 @@ end;
 
 procedure TControllerApiTargetBank.GetCadastro;
 begin
-  var vCadastro := TMVCActiveRecord.All<TCadastro>;
-  Render<TCadastro>(vCadastro);
+  var vCadastro := TMVCActiveRecord.All<TCadastroEntidade>;
+  Render<TCadastroEntidade>(vCadastro);
 end;
 
 procedure TControllerApiTargetBank.GetCadastroById(id: Integer);
 begin
-  var vCadastro := TMVCActiveRecord.GetByPK<TCadastro>(id);
+  var vCadastro := TMVCActiveRecord.GetByPK<TCadastroEntidade>(id);
   Render(vCadastro);
 end;
 
 constructor TControllerApiTargetBank.Create;
 begin
   inherited;
+  try
+    var vIniFile := TIniFile.Create('C:\Git\Api.TargetBank\conexao.ini');
 
-  var vIniFile := TIniFile.Create('C:\Git\Api.TargetBank\conexao.ini');
+    FConnectionRex := TMySQLConnection.Create(vIniFile.ReadString('Conexao', 'Servidor', ''),
+                                              vIniFile.ReadString('Conexao', 'Porta'   , ''),
+                                              vIniFile.ReadString('Conexao', 'Banco'   , ''),
+                                              vIniFile.ReadString('Conexao', 'Usuario' , ''),
+                                              vIniFile.ReadString('Conexao', 'Senha'   , ''));
+  
+    FConnectionRex.Connect;
 
-  FConnectionRex := TMySQLConnection.Create(vIniFile.ReadString('Conexao', 'Servidor', ''),
-                                            vIniFile.ReadString('Conexao', 'Porta'   , ''),
-                                            vIniFile.ReadString('Conexao', 'Banco'   , ''),
-                                            vIniFile.ReadString('Conexao', 'Usuario' , ''),
-                                            vIniFile.ReadString('Conexao', 'Senha'   , ''));
-
-  FConnectionRex.Connect;
-
-  ActiveRecordConnectionsRegistry.AddDefaultConnection(FConnectionRex.GetConnection);
+    ActiveRecordConnectionsRegistry.AddDefaultConnection(FConnectionRex.GetConnection);
+  except on E: Exception do
+    Render(E.Message);
+  end;
+  
 end;
 
 procedure TControllerApiTargetBank.CreateCadastro;
 begin
-  var vCadastro := Context.Request.BodyAs<TCadastro>;
+  var vCadastro := Context.Request.BodyAs<TCadastroEntidade>;
 
   vCadastro.Insert;
 
   Render(vCadastro);
 end;
 
+procedure TControllerApiTargetBank.CreateCIOT;
+begin
+
+end;
+
 procedure TControllerApiTargetBank.UpdateCadastro(id: Integer);
 begin
-  var vCadastro := Context.Request.BodyAs<TCadastro>;
+  var vCadastro := Context.Request.BodyAs<TCadastroEntidade>;
 
   vCadastro.Codigo := id;
   vCadastro.Update;
@@ -119,7 +132,7 @@ end;
 
 procedure TControllerApiTargetBank.DeleteCadastro(id: Integer);
 begin
-  var vCadastro := TMVCActiveRecord.GetByPK<TCadastro>(id);
+  var vCadastro := TMVCActiveRecord.GetByPK<TCadastroEntidade>(id);
 
   vCadastro.Delete;
 

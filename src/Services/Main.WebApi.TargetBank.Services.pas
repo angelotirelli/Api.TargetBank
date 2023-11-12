@@ -1,4 +1,4 @@
-unit Main.WebApi.TargetBank;
+unit Main.WebApi.TargetBank.Services;
 
 interface
 
@@ -6,9 +6,8 @@ uses
   System.SysUtils,
   System.Classes,
   Web.HTTPApp,
-  MVCFramework,
-  FireDAC.Phys,
-  Data.DB;
+  MVCFramework;
+
 
 type
   TWebApiMain = class(TWebModule)
@@ -28,7 +27,7 @@ implementation
 {$R *.dfm}
 
 uses
-  Controller.WebApi.TargetBank,
+  Main.WebApi.TargetBank.Controller,
   MVCFramework.Commons,
   MVCFramework.Middleware.ActiveRecord;
 
