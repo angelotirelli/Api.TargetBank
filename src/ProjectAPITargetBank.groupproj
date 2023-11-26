@@ -6,6 +6,9 @@
         <Projects Include="Api.TargetBank.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="..\..\ConsumindoSOAP\ProjectConsumindoSOAP.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -23,14 +26,23 @@
     <Target Name="Api_TargetBank:Make">
         <MSBuild Projects="Api.TargetBank.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ProjectConsumindoSOAP">
+        <MSBuild Projects="..\..\ConsumindoSOAP\ProjectConsumindoSOAP.dproj"/>
+    </Target>
+    <Target Name="ProjectConsumindoSOAP:Clean">
+        <MSBuild Projects="..\..\ConsumindoSOAP\ProjectConsumindoSOAP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectConsumindoSOAP:Make">
+        <MSBuild Projects="..\..\ConsumindoSOAP\ProjectConsumindoSOAP.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Api_TargetBank"/>
+        <CallTarget Targets="Api_TargetBank;ProjectConsumindoSOAP"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Api_TargetBank:Clean"/>
+        <CallTarget Targets="Api_TargetBank:Clean;ProjectConsumindoSOAP:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Api_TargetBank:Make"/>
+        <CallTarget Targets="Api_TargetBank:Make;ProjectConsumindoSOAP:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
